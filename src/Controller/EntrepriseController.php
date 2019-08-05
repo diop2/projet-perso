@@ -29,7 +29,7 @@ class EntrepriseController extends AbstractController
            
             $user = new User();
             
-            $user->setEmail($values->email);
+            $user->setEmail(trim($values->email));
             if ($values->roles == 1) {
                 $user->setRoles(["ROLE_ADMIN"]);
                 $utilisateur=("AD");
@@ -39,23 +39,23 @@ class EntrepriseController extends AbstractController
                 $utilisateur=("UT");
             }
             $user->setPassword($passwordEncoder->encodePassword($user, $values->password));
-            $user->setNomComplet($values->nomComplet);
-            $user->setAdresse($values->adresse);
-            $user->setNci($values->nci);
-            $user->setTel($values->tel);
-            $user->setIsActive($values->isActive);
+            $user->setNomComplet(trim($values->nomComplet));
+            $user->setAdresse(trim($values->adresse));
+            $user->setNci(trim($values->nci));
+            $user->setTel(trim($values->tel));
+            $user->setIsActive(trim($values->isActive));
 
             $entreprise = new Entreprise();
 
-            $entreprise->setNom($values->nom);
-            $entreprise->setAdresse($values->adresse);
-            $entreprise->setTel($values->tel);
-            $entreprise->setNci($values->nci);
-            $entreprise->setNomComplet($values->nomComplet);
-            $entreprise->setLINEA($values->linea);                                                    
-            $entreprise->setRaisonSocial($values->raisonsocial);
-            $entreprise->setSolde($values->solde);
-            $entreprise->setIsActive($values->isActive);
+            $entreprise->setNom(trim($values->nom));
+            $entreprise->setAdresse(trim($values->adresse));
+            $entreprise->setTel(trim($values->tel));
+            $entreprise->setNci(trim($values->nci));
+            $entreprise->setNomComplet(trim($values->nomComplet));
+            $entreprise->setLINEA(trim($values->linea));                                                    
+            $entreprise->setRaisonSocial(trim($values->raisonsocial));
+            $entreprise->setSolde(trim($values->solde));
+            $entreprise->setIsActive(trim($values->isActive));
             
             
             $jour=date('d');

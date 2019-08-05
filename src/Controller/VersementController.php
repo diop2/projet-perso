@@ -29,8 +29,8 @@ class VersementController extends AbstractController
                     
                     $versement = new Versement();
                     
-                    $versement->setNumeroCompte($values->NumeroCompte);
-                    $versement->setSolde($values->solde);
+                    $versement->setNumeroCompte(trim($values->NumeroCompte));
+                    $versement->setSolde(trim($values->solde));
                     $versement->setDateversement(new \DateTime('now'));
 
                     
