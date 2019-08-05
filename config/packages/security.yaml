@@ -42,6 +42,6 @@ security:
     access_control:
         - { path: ^/admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: ROLE_ADMIN_SYSTEME }
-        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY  }
+        - { path: ^/entreprise, roles: ROLE_ADMIN_COMPTE  }
         - { path: ^/versement, roles: ROLE_ADMIN_CAISSIER  }
 
