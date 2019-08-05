@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Entity\User;
+use App\Entity\Versement;
 use App\Entity\Entreprise;
 use App\Controller\EntrepriseController;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,7 +20,7 @@ class EntrepriseController extends AbstractController
     /**
      * @Route("/entreprise", name="entreprise")
      */
-    public function partenaire( Request $request,EntityManagerInterface $entityManager, SerializerInterface $serializer, ValidatorInterface $validator)
+    public function partenaire( Request $request,EntityManagerInterface $entityManager, SerializerInterface $serializer, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
     {
        
         $values = json_decode($request->getContent());

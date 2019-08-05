@@ -40,7 +40,7 @@ class UserController extends AbstractController
             
             $user->setEmail($values->email);
             if ($values->roles == 1) {
-                $user->setRoles(["ROLE_ADMIN_COMPTE"]);
+                $user->setRoles(["ROLE_ADMIN_SYSTEME"]);
                 $utilisateur=("AMS");
             }
             elseif ($values->roles == 2) {
