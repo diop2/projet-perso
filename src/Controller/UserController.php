@@ -21,7 +21,15 @@ use App\Controller\UserController;
 
 class UserController extends AbstractController
 {
-    
+    /**
+     * @Route("/", name="user_index", methods={"GET"})
+     */
+    public function index(UserRepository $userRepository): Response
+    {
+        $repo = $this->getDoctrine()->getRepository(User::class);
+        $user = $repo->findAll();
+        return $this->handleView($this->view($user));
+    }
 
     /**
      * @Route("/register", name="register", methods={"POST"})
