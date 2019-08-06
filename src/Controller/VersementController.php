@@ -36,7 +36,9 @@ class VersementController extends AbstractController
                     
                     $identreprise=$this->getDoctrine()->getRepository(Entreprise::class)->find($values->entreprise_id);
                     $versement->setEntreprise($identreprise);
-                    $identreprise->setSolde($identreprise->getSolde()+$values->solde);
+                    //var_dump($values->entreprise_id);
+                    //die();
+                    $identreprise->setSolde($identreprise->getSolde() + $values->solde);
 
                     $caissier=$this->getDoctrine()->getRepository(USer::class)->find($values->caissier_id);
                     $versement->setCaissier($caissier);

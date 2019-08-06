@@ -25,13 +25,13 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
 
-        register:
-            pattern:  ^/register
-            stateless: true
-            anonymous: true
+        #register:
+            #pattern:  ^/register
+            #stateless: true
+            #anonymous: true
 
         api:
-            pattern:  ^/api
+            pattern:  ^/
             stateless: true
             anonymous: false
             provider: entity_provider
@@ -40,7 +40,7 @@ security:
                     - lexik_jwt_authentication.jwt_token_authenticator
 
     access_control:
-        - { path: ^/admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: ROLE_ADMIN_SYSTEME }
         - { path: ^/entreprise, roles: ROLE_ADMIN_COMPTE  }
         - { path: ^/versement, roles: ROLE_ADMIN_CAISSIER  }

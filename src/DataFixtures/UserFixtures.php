@@ -17,10 +17,10 @@ class UserFixtures extends Fixture
     {
         
         $user = new User();
-        $user->setEmail('diopy92@gmil.com');
+        $user->setEmail('diop@gmail.com');
         $user->setRoles(["ROLE_ADMIN_SYSTEME"]);
                 
-            
+            //$user->setEntreprise('');
             $user->setPassword($this->passwordEncoder->encodePassword($user,'01234'));
             $user->setNomComplet('Ousmane DIOP');
             $user->setAdresse('Saint-Louis');

@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Versement;
 
 use App\Entity\Entreprise;
+use App\Controller\UserController;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,9 +15,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use App\Controller\UserController;
 
 
 class UserController extends AbstractController
@@ -40,7 +41,7 @@ class UserController extends AbstractController
             
             $user->setEmail(trim($values->email));
             if ($values->roles == 1) {
-                $user->setRoles(["ROLE_ADMIN_SYSTEME"]);
+                $user->setRoles(["ROLE_ADMIN_COMPTE"]);
                 $utilisateur=("PAR");
             }
             elseif ($values->roles == 2) {
