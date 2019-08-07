@@ -24,8 +24,8 @@ class VersementController extends AbstractController
     {
         $values = json_decode($request->getContent());
 
-        if (isset($values->NumeroCompte,  $values->caissier_id,  $values->solde)) {
-                if($values->solde>75000 &&  $values->NumeroCompte!=''  /* && $values->entreprise!='' */ ) {
+        if (  $values->solde>75000 &&  isset($values->NumeroCompte,  $values->caissier_id, $values->entreprise_id ,$values->solde)) {
+                
                     
                     $versement = new Versement();
                     
@@ -36,8 +36,7 @@ class VersementController extends AbstractController
                     
                     $identreprise=$this->getDoctrine()->getRepository(Entreprise::class)->find($values->entreprise_id);
                     $versement->setEntreprise($identreprise);
-                    //var_dump($values->entreprise_id);
-                    //die();
+                    
                     $identreprise->setSolde($identreprise->getSolde() + $values->solde);
 
                     $caissier=$this->getDoctrine()->getRepository(USer::class)->find($values->caissier_id);
@@ -62,21 +61,23 @@ class VersementController extends AbstractController
                     ];
 
                     return new JsonResponse($data, 200);
-                }
-                        else {
-                            $data = [
-                                'status' => 201,
-                                'message' => 'Versement inferieur a 75000'
-                            ];
-        
-                            return new JsonResponse($data, 201);
-                        }
+                
+                       
                        
         }
+        else {
+            $data = [
+                'status' => 201,
+                'message' => 'Versement inferieur a 75000'
+            ];
+
+            return new JsonResponse($data, 201);
+        }
         $data = [
-           
-            'message' => 'numero compte n\'existe pas'
+           'les informations ne sont pas bonnes'
         ];
         return new JsonResponse($data, 500);
+
+        
     }
 }

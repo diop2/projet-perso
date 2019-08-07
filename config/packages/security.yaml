@@ -31,6 +31,7 @@ security:
             #anonymous: true
 
         api:
+            http_basic : ~
             pattern:  ^/
             stateless: true
             anonymous: false
@@ -44,4 +45,3 @@ security:
         - { path: ^/register, roles: ROLE_ADMIN_SYSTEME }
         - { path: ^/entreprise, roles: ROLE_ADMIN_COMPTE  }
         - { path: ^/versement, roles: ROLE_ADMIN_CAISSIER  }
-
